@@ -1,6 +1,7 @@
 # Spring Boot API Boilerplate
 - slicequeue! spring boot api boilerplate 프로젝트
-  - JPA 적용, H2 데이터베이스 사용
+  - JPA 적용, MySQL 데이터베이스 사용
+  - 테스트용 데이터베이스 H2 사용
 
 ## 구성
 Spring Boot RESTful API 전용 프로젝트
@@ -21,7 +22,7 @@ build.gradle 구성 내용 설명
   * spring-boot-starter-actuator
   * spring-boot-starter-data-jpa
 * database
-  * runtimeOnly com.h2database:h2 - 실행용 인메모리 H2
+  * implementation mysql:mysql-connector-java:8.0.28 - MySQL 커넥터
   * testRuntimeOnly com.h2database:h2 - 테스트용 인메모리 H2
 * micrometer & prometheus
   * io.micrometer:micrometer-registry-prometheus:1.8.4
@@ -37,14 +38,10 @@ build.gradle 구성 내용 설명
 프로젝트 초기 세팅 관련 설정법 기술
 * main.resources.application.yml 설정
   * DB_URL: 데이터에비스 접속
-    * 예시 (H2 in mem): jdbc:h2:mem:testdb;MODE=MySQL;DATABASE_TO_UPPER=FALSE
-    * 예시 (H2 in local): jdbc:h2:~:testdb;MODE=MySQL;DATABASE_TO_UPPER=FALSE
+    * 예시: jdbc:mysql://localhost:3306/test
   * DB_USER: DB 계정 아이디
-    * 예시(H2 in mem):
   * DB_PASS: DB 계정 비밀번호
-    * 예시(H2 in mem):
   * DB_POOL_SIZE: DB Hikari PoolSize
-    * 예시(H2 in mem):
 * test.resources.application.yml 설정
   * application.yml 에 H2 인메모리 DB 로 설정 고정
     * 상황에 맞게 직조작 할 것
