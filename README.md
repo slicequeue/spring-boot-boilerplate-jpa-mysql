@@ -5,7 +5,7 @@
 
 ## 구성
 Spring Boot RESTful API 전용 프로젝트
-+ JPA 적용, H2 데이터베이스 사용
++ JPA 적용, MySQL 데이터베이스 사용, 테스트용 데이터베이스 H2 사용
 
 ### 폴더 구조
 - TBU
